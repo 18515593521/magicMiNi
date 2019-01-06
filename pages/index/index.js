@@ -361,6 +361,7 @@ Page({
         thisPage.getShopInfo(0);     //获取店铺信息
       }
 
+      thisPage.getModelData(); //获取模板的数据
       thisPage.isHavePayOrder();  //是否有需要支付的订单
 
     } else {
@@ -1076,7 +1077,7 @@ Page({
     //var domainName_onLine = 'https://www.kaolaj.com/magicCloud';
     //var domainName_onLine = 'https://www.kaolaj.com/magic_cloud2.0_test';
     //var domainName_onLine = 'https://www.kaolaj.com/magic_cloud2.0_shenhe';
-     var domainName_onLine = 'http://192.168.1.8:8080/shop-web';
+     var domainName_onLine = 'http://192.168.1.131:8080/shop-web';
     // var domainName_outLine = 'https://www.kaolaj.com/magic_cloud2.0_test';
     var domainName_outLine = 'https://www.kaolaj.com/magic_cloud2.0_shenhe';
     var domainName_middle = "https://www.kaolaj.com/magic_cloud2.0_shenhe/app/selectVersion/" + app.globalData.appInfo.type;
@@ -1722,5 +1723,157 @@ Page({
     thisPage.setData({
       lookCommission : false
     })
-  }
+  },
+   //模板获取数据
+  getModelData: function () {
+    var thisPage = this;
+    wx.request({
+      url: app.globalData.domainName + '/app/selectUserIndexTemplate', //接口地址
+      method: 'post',
+      dataType: 'json',
+      data: {
+        user_id: app.globalData.customerInfo.factoryId,
+        template_id: app.globalData.userInfoAll.appModel
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) { //成功
+        var returnData = res.data;
+        // console.log('【接口返回数据】',returnData);
+
+        if (returnData.code == 0) { //成功
+          var ModelData = returnData.result;
+          var homeCont = returnData.result.userTemplateHomeContent;
+          //第五个模板
+          if (homeCont) {
+            for (var m = 0; m < homeCont.length; m++) {
+              if (homeCont[m].code == 1) { //优惠券  status  是否显示 	is_priority   1优先  2不优先
+                var shopCardList = {};
+                shopCardList.is_code = homeCont[m].code;
+                shopCardList.is_priority = homeCont[m].is_priority;
+                thisPage.setData({
+                  shopCardList1: shopCardList
+                })
+              } else if (homeCont[m].code == 2) { //爆款产品
+                var hotProductList = {};
+                hotProductList.is_code = homeCont[m].code;
+                hotProductList.is_priority = homeCont[m].is_priority;
+                thisPage.setData({
+                  hotProductList1: hotProductList
+                })
+              } else if (homeCont[m].code == 3) { //限时抢购
+                var limitBuyProductList = {};
+                limitBuyProductList.is_code = homeCont[m].code;
+                limitBuyProductList.is_priority = homeCont[m].is_priority;
+                thisPage.setData({
+                  limitBuyProductList1: limitBuyProductList
+                })
+              } else if (homeCont[m].code == 4) { //拼团产品
+                var groupListData = {};
+                groupListData.is_code = homeCont[m].code;
+                groupListData.is_priority = homeCont[m].is_priority;
+                thisPage.setData({
+                  groupListData1: groupListData
+                })
+              } else if (homeCont[m].code == 5) { //附近店铺
+                var serverInfo = {};
+                serverInfo.is_code = homeCont[m].code;
+                serverInfo.is_priority = homeCont[m].is_priority;
+                thisPage.setData({
+                  serverInfo1: serverInfo
+                })
+              } else if (homeCont[m].code == 6) { //首页产品
+                var productList = {};
+                productList.is_code = homeCont[m].code;
+                productList.is_priority = homeCont[m].is_priority;
+                thisPage.setData({
+                  productList1: productList
+                })
+              }
+
+            }
+          }
+
+        
+
+          thisPage.setData({
+            ModelData: ModelData,
+          })
+          
+          //只针对第五个模板
+          if (thisPage.data.appModel == '5') {
+            // for (var cont = 0; cont < Object.keys(ModelData).length;cont++){
+            var fiveList = [];
+            for (var cont in ModelData) {
+
+              if (cont.indexOf('node') !== -1 && cont !== 'node1' && cont !== 'node6') {
+                fiveList.push(cont);
+
+              }
+
+            }
+            thisPage.setData({
+              fiveList: fiveList
+            })
+          }
+
+          setTimeout(function () {
+            var query = wx.createSelectorQuery();
+            query.select('#contets').boundingClientRect(function (res) {
+              thisPage.setData({
+                Height2: res.height - 100
+              })
+            }).exec()
+          }, 2000)
+
+
+
+
+
+        } else { //失败
+          app.showWarnMessage(returnData.message);
+        }
+      },
+      fail: function (res) { //失败
+        console.log('请求失败：', res.errMsg);
+      },
+      complete: function (res) { //完成
+        console.log('请求完成：', res.errMsg);
+      }
+    })
+  },
+  //模板中轮播图的跳转
+  activitySkip2: function (e) {
+    var dataSet = e.currentTarget.dataset;
+    var address = dataSet.address;
+    var type = dataSet.types;
+
+    if (address) {
+      app.pageSkip(address, type);
+    }
+
+  },
+  pageSkip2: function (e) {
+    var thisPage = this;
+    var dataSet = e.currentTarget.dataset;
+    var skipUrl = dataSet.url;
+    var skipType = dataSet.type;
+
+    if (skipUrl == '/pages/person_center/center/center/center') {
+      if (!app.globalData.customerInfo.phone) {
+        var skipUrl = "/pages/user_validate/user_validate";
+        app.pageSkip(skipUrl, skipType);
+      } else {
+        app.pageSkip(skipUrl, skipType);
+      }
+    } else if (skipUrl == '') {
+
+
+    } else {
+      if (skipUrl) {
+        app.pageSkip(skipUrl, skipType);
+      }
+    }
+  },
 })
