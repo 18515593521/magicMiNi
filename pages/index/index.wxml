@@ -1714,7 +1714,7 @@
    <!--顶部操作按钮-->
   <view class='flexRow justAround' style='margin-top:20rpx;height:60rpx' wx:if='{{ModelData.node2.views.length>0}}'>
     <block wx:for='{{ModelData.node2.views}}' wx:for-index="idx">
-      <view class='opactionsNames bottomIcons1' style='width:{{750/ModelData.node2.views.length}}rpx' bindtap='pageSkip' data-url='{{item.address}}' data-type='1'>{{item.view}}</view>
+      <view class='opactionsNames bottomIcons1' style='width:{{750/ModelData.node2.views.length+2}}rpx' bindtap='pageSkip' data-url='{{item.address}}' data-type='1'>{{item.view}}</view>
       <button hidden='{{isAuthorizePhone}}' class="phoneButton" open-type="getPhoneNumber" data-type='' data-param='' bindgetphonenumber="authorizePhone"></button>
     
     </block>
