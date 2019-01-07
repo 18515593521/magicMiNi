@@ -111,8 +111,8 @@ Page({
           for (var das = 0; das < returnData.result.shopColumn.length; das++) {
             if (returnData.result.shopColumn[das] == '/pages/person_center/center/commission_center/commission_center') {
               app.globalData.is_horizontal_alliances = true;
-              if ((returnData.result.userCommissionSet.customer_commission_status == 1 && app.globalData.customerInfo.is_horizontal_alliances == 2 ) ||
-                (returnData.result.userCommissionSet.horizontal_alliances_commission_status == 1 
+              if ((returnData.result.userCommissionSet && returnData.result.userCommissionSet.customer_commission_status == 1 && app.globalData.customerInfo.is_horizontal_alliances == 2 ) ||
+                (returnData.result.userCommissionSet &&returnData.result.userCommissionSet.horizontal_alliances_commission_status == 1 
               &&  app.globalData.customerInfo.is_horizontal_alliances == 1)
               ) {
                 app.pageSkip('/pages/person_center/center/commission_center/commission_center', 2)

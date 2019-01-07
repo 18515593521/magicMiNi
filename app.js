@@ -4,8 +4,8 @@ App({
     //小程序信息
     appInfo: {
       name: '魔方云智慧门店集客平台',
-      appId: 'wx7e89ae5c19f93e80',
-      appSecret: '06ed3e6aaccad180b7fa7fdb92920545',
+      appId: 'wxe9588706bb1a3ee1',
+      appSecret: 'c1f68104d4905fd2a7b1cb4a2f865ac5',
 
       appKey: '',
       type: 106,
