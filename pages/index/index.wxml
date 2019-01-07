@@ -2004,9 +2004,9 @@
   </view>
 
   <!-- 产品推荐 -->
-  <view class='productsRecommend' wx:if="{{setInfo.product_is_show==1 && productList.length}}">
+  <!-- <view class='productsRecommend' wx:if="{{setInfo.product_is_show==1 && productList.length}}">
     <!-- 产品推荐标题 -->
-    <view class='flexRow titleFourBox  paddingBox4'>
+    <!-- <view class='flexRow titleFourBox  paddingBox4'>
       <view class='bgLine'>
         <image src='/images/fourimg/title_line.png'></image>
       </view>
@@ -2016,7 +2016,7 @@
       </view>
     </view>
     <!-- 产品展示 -->
-    <block wx:if="{{setInfo.product_is_show==1 && productList.length}}">
+     <!--<block wx:if="{{setInfo.product_is_show==1 && productList.length}}">
       <view class="productContainer">
         <block wx:for="{{productList}}" wx:key="id">
           <view class="item">
@@ -2075,7 +2075,7 @@
         </block>
       </view>
     </block>
-  </view>
+  </view> -->
   <!-- 菜单栏 -->
   <!-- <view class='menuList justAround flexRow'>
     <view wx:for="{{iconData}}" wx:key="*this">
