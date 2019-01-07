@@ -25,7 +25,7 @@
 <view class="join" bindtap="joinActivity">立即参与</view>
 
 <view class="signImage">
-  <image src="/images/signImage.png"></image>
+  <image src="http://www.kaolaj.com/file/upload/minipicture/signImage.png"></image>
 </view>
 
 <!--模态框-->

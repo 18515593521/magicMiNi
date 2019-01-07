@@ -23,7 +23,7 @@
 </view>
 
 <view class="signImage">
-  <image src="/images/signImage.png"></image>
+  <image src="http://www.kaolaj.com/file/upload/minipicture/signImage.png"></image>
 </view>
 
 <!--模态框-->

@@ -1,4 +1,4 @@
 
 <view class='ruleImage'>
-  <image src='/images/rule.jpg' mode='widthFix'></image>
+  <image src='https://www.kaolaj.com/file/upload/minipicture/rule.jpg' mode='widthFix'></image>
 </view>

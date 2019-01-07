@@ -9,7 +9,7 @@
         <!-- <cover-image src="/images/video/videoBtn.png" class='videoBtn' hidden='{{showVBtn}}' /> -->
         
         <cover-view class='audioMask' hidden='{{showABtn}}'>
-           <cover-image src="/images/video/audioBtn.png" class='videoBtn' style='width:325rpx;height:326rpx' />
+           <cover-image src="http://www.kaolaj.com/file/upload/minipicture/audioBtn.png" class='videoBtn' style='width:325rpx;height:326rpx' />
         </cover-view>
        
         <!--音频按钮-->
@@ -34,6 +34,6 @@
 
   <!-- 音频 -->
   <view class='audioMask' hidden='{{audioCard}}' bindtap="bindPlayPause">
-    <image src='/images/video/audioBtn.png' style='width:325rpx;height:326rpx'></image>
+    <image src='http://www.kaolaj.com/file/upload/minipicture/audioBtn.png' style='width:325rpx;height:326rpx'></image>
   </view>
 </view>

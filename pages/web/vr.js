@@ -20,7 +20,7 @@ Page({
     return {
       title: '全景图',
       path: "/pages/index/index?" + param,
-      imageUrl:'/images/bgm.jpg',
+      imageUrl:'http://www.kaolaj.com/file/upload/minipicture/bgm.jpg',
       success: function (res) {
         app.addPageSharePoint("全景图");
       }
