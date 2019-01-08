@@ -1931,7 +1931,7 @@
     </view>
   </view>
   <!--附近店铺推荐-->
-  <view class='flexRowH  nearStyles'>
+  <!-- <view class='flexRowH  nearStyles'>
     <view wx:if='{{show_near_shop==1?true:false}}'>
       <view hidden='{{storeShowHide}}'>
         <view class='flexColumnH nearByInfo'>
@@ -1940,7 +1940,7 @@
             <view class='storeTitle'>附近店铺推荐</view>
           </view> -->
           <!-- 标题 -->
-          <view class='flexRow titleFourBox'>
+         <!--  <view class='flexRow titleFourBox'>
             <view class='bgLine'>
               <image src='/images/fourimg/title_line.png'></image>
             </view>
@@ -1950,7 +1950,7 @@
             </view>
           </view>
           <!--服务商户-->
-          <view hidden='{{serverShowHide}}'>
+        <!--   <view hidden='{{serverShowHide}}'>
             <view class='flexColumnH ' style='border-bottom:10rpx solid #f6f6f6'>
               <view class='paddingBox1 flexRow' data-indexs='server' bindtap='getToShop' data-title='{{serverInfo.name}}'>
                 <view class='flexColumnH shopBox'>
@@ -1975,7 +1975,7 @@
             </view>
           </view>
           <!--就近店铺-->
-          <view hidden='{{shopBoxShowHide}}'>
+       <!--    <view hidden='{{shopBoxShowHide}}'>
             <block wx:for='{{nearInfo}}' wx:key='*this' wx:for-item='shop' data-indexs='index'>
               <view hidden='{{shopShowHide[index]}}'>
                 <view class='flexColumnH ' style='border-bottom:10rpx solid #f6f6f6'>
@@ -2006,7 +2006,7 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
 
   <!-- 产品推荐 -->
   <!-- <view class='productsRecommend' wx:if="{{setInfo.product_is_show==1 && productList.length}}">

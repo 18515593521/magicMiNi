@@ -145,8 +145,8 @@ Page({
           series_id: thisPage.data.seriesIdList.toString(),
           shopId: app.globalData.shopInfo.sys_user_id,
           product_title: thisPage.data.searchText,
-          customerId: app.globalData.customerInfo.id
-         
+          customerId: app.globalData.customerInfo.id,
+          top:3
         }
       },
       method: 'POST',
