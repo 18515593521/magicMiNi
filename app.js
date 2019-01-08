@@ -12,9 +12,9 @@ App({
       version: '1.0.0',
     },
     //【域名】//
-    // domainName: 'http://192.168.1.131:8080/shop-web',   //域名
+     //domainName: 'http://localhost:8080/shop-web',   //域名
     // domainName: 'https://www.kaolaj.com/magicCloud',   //域名（线上）
-      domainName: 'https://www.kaolaj.com/magic_cloud2.0_test',   //域名（测试）
+     domainName: 'https://www.kaolaj.com/magic_cloud2.0_test',   //域名（测试）
     // domainName: 'https://www.kaolaj.com/magic_cloud2.0_shenhe',   //域名（测试）
 
     //【设备信息】
@@ -442,7 +442,7 @@ App({
     console.log(skipParam +'skipParam----');
     switch (skipType) {
       case 'banner':
-        if (app.globalData.currentActivityInfo.activity_id == skipParam) {
+        if (skipParam && app.globalData.currentActivityInfo.activity_id  && app.globalData.currentActivityInfo.activity_id == skipParam) {
           app.pageSkip("/pages/activity/activity_details/activity_details", 1);
         }
         break;
